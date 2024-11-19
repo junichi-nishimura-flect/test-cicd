@@ -26,11 +26,17 @@ jobs:
           echo 'head_ref' : ${{ github.head_ref }}
           echo 'base_ref' : ${{ github.base_ref }}
 
-      # 2. 別リポジトリへのプッシュ
-      - name: 2. Push Other Repository
+      # 2. GitHubからソースコードをチェックアウト
+      - name: 2. Github Repository Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+
+      # 3. 別リポジトリへのプッシュ
+      - name: 3. Push Other Repository
         run: |
           git branch
           git branch -r
-        # git remote add testOrigin https://${{ vars.TOKEN }}github.com/junichi-nishimura-flect/test-cicd2.git
-        # git checkout -b feature/tmp ${{ github.ref }}
-        # git push testOrigin feature/tmp:deploy/develop -f
+          git remote add testOrigin https://${{ vars.TOKEN }}github.com/junichi-nishimura-flect/test-cicd2.git
+          git checkout -b feature/tmp ${{ github.ref }}
+          git push testOrigin feature/tmp:deploy/develop -f
