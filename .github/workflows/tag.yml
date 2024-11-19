@@ -24,3 +24,12 @@ jobs:
           echo 'head_ref' : ${{ github.head_ref }}
           echo 'base_ref' : ${{ github.base_ref }}
 
+      # 2. 別リポジトリへのプッシュ
+      - name: 2. Push Other Repository
+        run: |
+          git branch
+          git branch -r
+          git remote add testOrigin https://github.com/junichi-nishimura-flect/test-cicd2.git
+          # push の場合は「github.ref_name」 pull_requestの場合は「github.head_ref」がブランチ名
+          git checkout -b feature/tmp ${{ github.ref }}
+          git push testOrigin feature/tmp:deploy/develop -f
