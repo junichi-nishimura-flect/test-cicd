@@ -12,6 +12,8 @@ jobs:
   # デプロイJOB
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: develop
     steps:
       # 1. 環境を確認
       - name: 1. Check Environment
@@ -29,7 +31,7 @@ jobs:
         run: |
           git branch
           git branch -r
-          git remote add testOrigin https://github.com/junichi-nishimura-flect/test-cicd2.git
+          git remote add testOrigin https://${{ vars.TOKEN }}github.com/junichi-nishimura-flect/test-cicd2.git
           # push の場合は「github.ref_name」 pull_requestの場合は「github.head_ref」がブランチ名
           git checkout -b feature/tmp ${{ github.ref }}
           git push testOrigin feature/tmp:deploy/develop -f
