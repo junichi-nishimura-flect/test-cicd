@@ -41,4 +41,4 @@ jobs:
           git branch -r
           git remote add testOrigin https://github.com/junichi-nishimura-flect/test-cicd2.git
           git checkout -b feature/tmp ${{ github.ref }}
-          git push testOrigin feature/tmp:deploy/develop -f
+          git push testOrigin feature/tmp:develop/deploy -f
