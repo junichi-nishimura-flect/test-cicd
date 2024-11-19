@@ -31,6 +31,6 @@ jobs:
         run: |
           git branch
           git branch -r
-          git remote add testOrigin https://${{ vars.TOKEN }}github.com/junichi-nishimura-flect/test-cicd2.git
-          git checkout -b feature/tmp ${{ github.ref }}
-          git push testOrigin feature/tmp:deploy/develop -f
+        # git remote add testOrigin https://${{ vars.TOKEN }}github.com/junichi-nishimura-flect/test-cicd2.git
+        # git checkout -b feature/tmp ${{ github.ref }}
+        # git push testOrigin feature/tmp:deploy/develop -f
