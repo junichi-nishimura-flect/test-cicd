@@ -30,6 +30,7 @@ jobs:
       - name: 2. Github Repository Checkout
         uses: actions/checkout@v4.2.2
         with:
+          token: ${{ vars.ACCESS_TOKEN }}
           fetch-depth: 0
 
       # 3. 別リポジトリへのプッシュ
@@ -38,6 +39,6 @@ jobs:
         run: |
           git branch
           git branch -r
-          git remote add testOrigin https://${{ vars.TOKEN }}github.com/junichi-nishimura-flect/test-cicd2.git
+          git remote add testOrigin https://github.com/junichi-nishimura-flect/test-cicd2.git
           git checkout -b feature/tmp ${{ github.ref }}
           git push testOrigin feature/tmp:deploy/develop -f
