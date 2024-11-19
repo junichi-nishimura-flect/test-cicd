@@ -33,6 +33,7 @@ jobs:
           fetch-depth: 0
 
       # 3. 別リポジトリへのプッシュ
+      # remote(testOrigin) の リポジトリにおいて、Workflow permissionsの権限設定を「Read and write permissions」にしておく必要あり
       - name: 3. Push Other Repository
         run: |
           git branch
