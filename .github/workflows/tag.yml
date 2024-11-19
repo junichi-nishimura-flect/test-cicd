@@ -5,7 +5,7 @@ on:
     tags:
       # v9.9.9-keycloak / dev-release-keycloak-yyyy-mm-dd-99
       - "v[0-9]+.[0-9]+.[0-9]+-keycloak"
-      - "dev-release-keycloak-20[0-9][0-9]-[01][0-9]-[03][0-9]-[0-9]+"
+      - "dev-release-keycloak-20[0-9][0-9]-[01][0-9]-[0-3][0-9]-[0-9]+"
   workflow_dispatch:
 
 jobs:
