@@ -13,7 +13,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment:
-      name: develop
+      name: production
     steps:
       # 1. 環境を確認
       - name: 1. Check Environment
