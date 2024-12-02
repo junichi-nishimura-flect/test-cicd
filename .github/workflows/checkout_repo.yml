@@ -18,7 +18,7 @@ jobs:
           # プライベートリポジトリを指定
           repository: junichi-nishimura-flect/test-cicd-private
           # checkout 先のパスを指定
-          path: ./test-cicd-private
+          path: test-cicd-private
           ref: develop
           fetch-depth: 0
 
