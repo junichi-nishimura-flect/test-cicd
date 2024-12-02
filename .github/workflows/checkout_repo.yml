@@ -25,5 +25,6 @@ jobs:
       # 3. ブランチの確認
       - name: 3. Push Other Repository
         run: |
-            git branch -a
+            pwd
+            ls -la
             git status -sb
