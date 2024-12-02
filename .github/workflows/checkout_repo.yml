@@ -26,5 +26,6 @@ jobs:
       - name: 3. Push Other Repository
         run: |
             pwd
+            cd test-cicd-private
             ls -la
             git status -sb
