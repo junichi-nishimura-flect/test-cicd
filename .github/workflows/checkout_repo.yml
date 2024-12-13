@@ -1,0 +1,31 @@
+name: checkout-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  # デプロイJOB
+  codecommit:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    steps:
+      # 2. 別のPrivateリポジトリからソースコードをチェックアウト
+      - name: 2. Github Repository Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          ssh-key: ${{ secrets.FOR_TEST }}
+          # プライベートリポジトリを指定
+          repository: junichi-nishimura-flect/test-cicd-private
+          # checkout 先のパスを指定
+          path: test-cicd-private
+          ref: develop
+          fetch-depth: 0
+
+      # 3. ブランチの確認
+      - name: 3. Push Other Repository
+        run: |
+            pwd
+            cd test-cicd-private
+            ls -la
+            git status -sb
