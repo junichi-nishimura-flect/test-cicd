@@ -18,12 +18,14 @@ jobs:
           # プライベートリポジトリを指定
           repository: junichi-nishimura-flect/test-cicd-private
           # checkout 先のパスを指定
-          path: ./test-cicd-private
+          path: test-cicd-private
           ref: develop
           fetch-depth: 0
 
       # 3. ブランチの確認
       - name: 3. Push Other Repository
         run: |
-            git branch -a
+            pwd
+            cd test-cicd-private
+            ls -la
             git status -sb
